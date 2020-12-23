@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: acmeair-customerservice-java
-        image: quay.io/mmondics/acmeair-customerservice-java-s390x:v1.0.0
+        image: docker.io/yigitpolat/acmeair-customerservice-java:latests
         ports:
           - containerPort: 9080
           - containerPort: 9443
