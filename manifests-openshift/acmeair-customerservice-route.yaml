@@ -2,6 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: acmeair-customer-route
+  labels:
+    app.kubernetes.io/part-of: acmeair-customerservice
 spec:
   host: _HOST_
   path: /customer

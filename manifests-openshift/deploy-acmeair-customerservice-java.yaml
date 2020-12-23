@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: acmeair-customerservice
+  labels:
+    app.kubernetes.io/part-of: acmeair-customerservice
 spec:
   replicas: 1
   selector:
@@ -50,6 +52,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: acmeair-customer-service
+  labels:
+    app.kubernetes.io/part-of: acmeair-customerservice
 spec:
   ports:
     - port: 9080
@@ -57,29 +61,13 @@ spec:
     name: acmeair-customer-deployment
 ---
 ##### Customer Database #####
-apiVersion: v1
-kind: Service
-metadata:
-  creationTimestamp: null
-  labels:
-    service: acmeair-customer-db
-  name: acmeair-customer-db
-spec:
-  ports:
-  - name: "27017"
-    port: 27017
-    protocol: TCP
-    targetPort: 27017
-  selector:
-    name: acmeair-customer-db
-status:
-  loadBalancer: {}
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
   name: acmeair-customer-db
+  labels:
+    app.kubernetes.io/part-of: acmeair-customerservice
 spec:
   replicas: 1
   selector:
@@ -111,3 +99,22 @@ spec:
             mountPath: /data/db
       restartPolicy: Always
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: acmeair-customer-db
+  labels:
+    service: acmeair-customer-db
+    app.kubernetes.io/part-of: acmeair-customerservice
+spec:
+  ports:
+  - name: "27017"
+    port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    name: acmeair-customer-db
+status:
+  loadBalancer: {}
