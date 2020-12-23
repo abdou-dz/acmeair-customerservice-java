@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: acmeair-customerservice
   labels:
-    app.kubernetes.io/part-of: acmeair-customerservice
+    app.kubernetes.io/part-of: customer-service
 spec:
   replicas: 1
   selector:
@@ -53,7 +53,7 @@ kind: Service
 metadata:
   name: acmeair-customer-service
   labels:
-    app.kubernetes.io/part-of: acmeair-customerservice
+    app.kubernetes.io/part-of: customer-service
 spec:
   ports:
     - port: 9080
@@ -67,7 +67,7 @@ metadata:
   creationTimestamp: null
   name: acmeair-customer-db
   labels:
-    app.kubernetes.io/part-of: acmeair-customerservice
+    app.kubernetes.io/part-of: customer-service
 spec:
   replicas: 1
   selector:
@@ -107,7 +107,7 @@ metadata:
   name: acmeair-customer-db
   labels:
     service: acmeair-customer-db
-    app.kubernetes.io/part-of: acmeair-customerservice
+    app.kubernetes.io/part-of: customer-service
 spec:
   ports:
   - name: "27017"

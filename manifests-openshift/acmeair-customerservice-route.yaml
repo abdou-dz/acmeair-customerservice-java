@@ -3,7 +3,7 @@ kind: Route
 metadata:
   name: acmeair-customer-route
   labels:
-    app.kubernetes.io/part-of: acmeair-customerservice
+    app.kubernetes.io/part-of: customer-service
 spec:
   host: _HOST_
   path: /customer
