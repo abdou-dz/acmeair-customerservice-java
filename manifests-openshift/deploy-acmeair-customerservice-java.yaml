@@ -83,7 +83,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        name: acmeair-customer-dbmage
+        name: acmeair-customer-db
     spec:
       volumes:
         - name: acmeair-customer-db-1
