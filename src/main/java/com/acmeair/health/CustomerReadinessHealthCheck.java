@@ -34,7 +34,7 @@ public class CustomerReadinessHealthCheck implements HealthCheck {
 
   public HealthCheckResponse call() {
    
-    HealthCheckResponseBuilder builder = HealthCheckResponse.named("FlightServiceReadinessCheck");
+    HealthCheckResponseBuilder builder = HealthCheckResponse.named("CustomerServiceReadinessCheck");
     
     if (customerService.isConnected()) {
       builder = builder.up();
