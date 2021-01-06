@@ -1,4 +1,4 @@
-FROM open-liberty:full
+FROM open-liberty:kernel
 
 COPY --chown=1001:0 src/main/liberty/config/server.xml /config/server.xml
 COPY --chown=1001:0 src/main/liberty/config/server.env /config/server.env
