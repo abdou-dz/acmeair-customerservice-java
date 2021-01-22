@@ -91,7 +91,7 @@ spec:
             claimName: acmeair-customer-db-1
         - name: acmeair-flight-db-2
           persistentVolumeClaim:
-            claimName: acmeair-flight-db-2
+            claimName: acmeair-customer-db-2
       containers:
       - image: mongo:latest
         name: acmeair-customer-db
