@@ -89,7 +89,7 @@ spec:
         - name: acmeair-customer-db-1
           persistentVolumeClaim:
             claimName: acmeair-customer-db-1
-        - name: acmeair-flight-db-2
+        - name: acmeair-customer-db-2
           persistentVolumeClaim:
             claimName: acmeair-customer-db-2
       containers:
