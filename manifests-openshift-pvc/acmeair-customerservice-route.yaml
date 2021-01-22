@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: acmeair-customer-route
+  labels:
+    app.kubernetes.io/part-of: customer-service
+spec:
+  host: _HOST_
+  path: /customer
+  to:
+    kind: Service
+    name: acmeair-customer-service
+  port:
+    targetPort: 9080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
