@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: acmeair-customerservice-java
-        image: docker.io/yigitpolat/acmeair-customerservice-java:latest
+        image: docker.io/abdouibm/acmeair-customerservice-java:latest
         ports:
           - containerPort: 9080
           - containerPort: 9443
