@@ -1,7 +1,5 @@
-=================================================
-DOCKER FILE
-=================================================
 FROM registry.access.redhat.com/ubi8/ubi
+FROM quay.io/abdouibm/open-liberty
 ENV CCA_VERSION 6.0.13
 ENV CCA_VERSION_NUMBER 10
 RUN yum --disableplugin=subscription-manager install httpd -y && yum --disableplugin=subscription-manager clean all
@@ -41,9 +39,6 @@ RUN git clone https://github.com/opencryptoki/libica.git \
     && ./configure \
     && make \
     && make install
-
-FROM quay.io/abdouibm/open-liberty
-
 COPY --chown=1001:0 src/main/liberty/config/server.xml /config/server.xml
 COPY --chown=1001:0 src/main/liberty/config/server.env /config/server.env
 COPY --chown=1001:0 src/main/liberty/config/jvm.options /config/jvm.options
